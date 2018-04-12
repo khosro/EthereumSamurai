@@ -25,6 +25,39 @@ namespace Lykke.Service.EthereumSamurai.MongoDb.Repositories
             _balanceCollection = database.GetCollection<Erc20BalanceEntity>(Constants.Erc20BalanceCollectionName);
             _historyCollection = database.GetCollection<Erc20BalanceHistoryEntity>(Constants.Erc20BalanceHistoryCollectionName);
             _mapper            = mapper;
+            _balanceCollection.Indexes.CreateMany(new[]
+            {
+                new CreateIndexModel<Erc20BalanceEntity>
+                (
+                    Builders<Erc20BalanceEntity>.IndexKeys.Combine
+                    (
+                        Builders<Erc20BalanceEntity>.IndexKeys.Descending(x => x.BlockNumber),
+                        Builders<Erc20BalanceEntity>.IndexKeys.Ascending(x => x.AssetHolderAddress),
+                        Builders<Erc20BalanceEntity>.IndexKeys.Ascending(x => x.ContractAddress)
+                    )
+                ),
+                new CreateIndexModel<Erc20BalanceEntity>
+                (
+                    Builders<Erc20BalanceEntity>.IndexKeys.Combine
+                    (
+                        Builders<Erc20BalanceEntity>.IndexKeys.Descending(x => x.BlockNumber),
+                        Builders<Erc20BalanceEntity>.IndexKeys.Ascending(x => x.ContractAddress)
+                    )
+                ),
+                new CreateIndexModel<Erc20BalanceEntity>
+                (
+                    Builders<Erc20BalanceEntity>.IndexKeys.Combine
+                    (
+                        Builders<Erc20BalanceEntity>.IndexKeys.Ascending(x => x.AssetHolderAddress),
+                        Builders<Erc20BalanceEntity>.IndexKeys.Ascending(x => x.ContractAddress),
+                        Builders<Erc20BalanceEntity>.IndexKeys.Descending(x => x.BlockNumber)
+                    )
+                ),
+                new CreateIndexModel<Erc20BalanceEntity>
+                (
+                    Builders<Erc20BalanceEntity>.IndexKeys.Ascending(x => x.ContractAddress)
+                )
+            });
 
             _historyCollection.Indexes.CreateMany(new[]
             {
