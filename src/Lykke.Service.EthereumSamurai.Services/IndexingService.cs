@@ -1,4 +1,5 @@
-﻿using Lykke.Service.EthereumSamurai.Core.Repositories;
+﻿using System;
+using Lykke.Service.EthereumSamurai.Core.Repositories;
 using Lykke.Service.EthereumSamurai.Core.Services;
 using Lykke.Service.EthereumSamurai.Models;
 using System.Numerics;
@@ -75,7 +76,7 @@ namespace Lykke.Service.EthereumSamurai.Services
             {
                 await _transactionRepository.SaveManyForBlockAsync(transactions, blockNumber);
             }
-            catch
+            catch (Exception e)
             {
                 foreach (var transaction in transactions)
                 {
