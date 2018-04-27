@@ -1,5 +1,4 @@
-﻿using Common;
-using Lykke.Service.EthereumSamurai.Core.Settings;
+﻿using Lykke.Service.EthereumSamurai.Core.Settings;
 using Lykke.RabbitMqBroker.Publisher;
 using Microsoft.Extensions.DependencyInjection;
 using Lykke.RabbitMqBroker.Subscriber;
@@ -48,7 +47,7 @@ namespace Lykke.Service.EthereumSamurai.RabbitMQ
             channel.ExchangeDeclare(exchange: settings.ExchangeName, type: ExchangeType.Fanout, durable: true);
         }
 
-        public void Publish(RabbitMqSubscriptionSettings settings, IModel channel, byte[] data)
+        public void Publish(RabbitMqSubscriptionSettings settings, IModel channel, RawMessage message)
         {
             var basicProperties = channel.CreateBasicProperties();
             basicProperties.Persistent = true;
@@ -56,7 +55,7 @@ namespace Lykke.Service.EthereumSamurai.RabbitMQ
             channel.BasicPublish(exchange: settings.ExchangeName,
                      routingKey: _queue,
                      basicProperties: basicProperties,
-                     body: data);
+                     body: message.Body);
         }
     }
 }

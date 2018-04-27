@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lykke.Common" Version="4.3.0" />
-    <PackageReference Include="Lykke.SettingsReader" Version="1.1.4" />
+    <PackageReference Include="Lykke.Common" Version="6.5.0" />
+    <PackageReference Include="Lykke.SettingsReader" Version="2.3.1" />
     <PackageReference Include="Nethereum.Geth" Version="2.0.0-rc5" />
     <PackageReference Include="Nethereum.Web3" Version="2.0.0-rc5" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
