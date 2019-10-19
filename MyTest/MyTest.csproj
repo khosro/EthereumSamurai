@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nethereum.Geth" Version="2.0.0" />
+    <PackageReference Include="Nethereum.Web3" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\Lykke.Service.EthereumSamurai.Core\Lykke.Service.EthereumSamurai.Core.csproj" />
+    <ProjectReference Include="..\src\Lykke.Service.EthereumSamurai\Lykke.Service.EthereumSamurai.csproj" />
+  </ItemGroup>
+
+</Project>

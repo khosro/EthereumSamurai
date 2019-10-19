@@ -61,10 +61,28 @@ namespace Lykke.Job.EthereumSamurai.Settings
                 
                 for (var i = 0; i < _indexerInstanceSettings.ThreadAmount; i++)
                 {
+                    if(toBlock == null)
+                    {
+                        /**
+                         * if _indexerInstanceSettings.StopBlock == null and if partSize = 0 then for all i > 0 then toBlock = null,
+                         * so that we skip it, because the first job process the all block that we want.
+                         */
+                        continue;
+                    }
                     var fromBlock = (ulong) toBlock + 1;
 
                     toBlock = fromBlock + partSize;
                     toBlock = toBlock < to ? toBlock : _indexerInstanceSettings.StopBlock;
+
+                    if(fromBlock> toBlock)
+                    {
+                        /*
+                         It occured, for example if (partSize = 0  && _indexerInstanceSettings.StopBlock != null ) and in first job the all block between 
+                         _indexerInstanceSettings.StartBlock and _indexerInstanceSettings.StopBlock are processed in fist job
+                         , so that in second one we do not want procced.
+                         */
+                        continue;
+                    }
 
                     var indexerId = $"{_indexerInstanceSettings.IndexerId}_thread_{i}";
                     var job       = _blockIndexingFactory.GetJob(new IndexingSettings
