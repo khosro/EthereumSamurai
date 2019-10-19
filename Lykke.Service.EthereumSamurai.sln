@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Tests", "3. Tests", "{905505B7-A128-423C-A6CB-9E9FE6FA780E}"
 EndProject
@@ -33,7 +33,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{29B5E197
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CashinReportGenerator", "tools\CashinReportGenerator\CashinReportGenerator.csproj", "{9AD9F3D4-0136-4467-B093-E2387BC7E65B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationTool", "tools\MigrationTool\MigrationTool\MigrationTool.csproj", "{0DC1D343-BF76-4FFF-BD1A-B8F26E0D1119}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool", "tools\MigrationTool\MigrationTool\MigrationTool.csproj", "{0DC1D343-BF76-4FFF-BD1A-B8F26E0D1119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTest", "MyTest\MyTest.csproj", "{ADE93988-198D-4FE0-AF71-4DF8F7F96BE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{0DC1D343-BF76-4FFF-BD1A-B8F26E0D1119}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DC1D343-BF76-4FFF-BD1A-B8F26E0D1119}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DC1D343-BF76-4FFF-BD1A-B8F26E0D1119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADE93988-198D-4FE0-AF71-4DF8F7F96BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADE93988-198D-4FE0-AF71-4DF8F7F96BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADE93988-198D-4FE0-AF71-4DF8F7F96BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADE93988-198D-4FE0-AF71-4DF8F7F96BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
